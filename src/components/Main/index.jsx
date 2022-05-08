@@ -3,8 +3,9 @@ import "./index.css";
 import Card from "../Card";
 import data from "../../data.json";
 
-const Main = ({search}) => {
-    const cards = data.filter(el => el.name.toLowerCase().includes(search.toLowerCase()));
+const Main = ({search, setCnt}) => {
+    const cards = data.filter(el => el.name.toLowerCase().includes(search.toLowerCase())); //фильтр поиска
+    setCnt(cards.length);
     return (
         <main>
             <div className="cards-container">

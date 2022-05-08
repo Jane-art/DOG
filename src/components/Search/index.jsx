@@ -18,9 +18,9 @@ const Search = (props) => {
         <form>
             <input type="text" value={val} onInput={changeText} placeholder ="поиск"/>
             <button type="button" className="search-btn">
-                {val ? <img src={close} onClick={clearText}/> : <img src={magnifier}/>}
-            </button>
-        </form>
+                {val ? <img src={close} onClick={clearText}/> : <img src={magnifier}/>} 
+            </button> 
+        </form>  //смена картинки от состояния строки
     )
 }
 export default Search;
