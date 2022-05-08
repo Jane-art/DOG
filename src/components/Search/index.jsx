@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import "./index.css";
 
-const Search = () => {
-    const [val,updateVal] = useState("tralalal"); //хук сoстояния //onInput, onChange, onBlur, onFocus
+const Search = (props) => {
+    const [val,updateVal] = useState(props.text); //хук сoстояния //onInput, onChange, onBlur, onFocus
     const changeText =(e) => {
         updateVal(e.target.value); //вызвать функцию updateVal и передать в неё новое значение переменной val
+        props.foo(e.target.value);
     }
     return (
         <form>
