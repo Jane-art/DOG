@@ -1,16 +1,23 @@
 import React from "react";
 import "./index.css";
-import Card from "../Card";
-import data from "../../data.json";
+import {Switch, Route, Routes} from "react-router-dom";
+import Home from "../../Pages/Home";
+import Catalog from "../../Pages/Catalog";
+import Cart from "../../Pages/Cart";
+import Product from "../../Pages/Product";
 
-const Main = ({search, setCnt}) => {
-    const cards = data.filter(el => el.name.toLowerCase().includes(search.toLowerCase())); //фильтр поиска
-    setCnt(cards.length);
+const Main = ({search}) => {
+   
     return (
         <main>
-            <div className="cards-container">
-                {cards.map(el => <Card text={el.name} key={el.id} pic={el.picture} price={el.price}/>)}
-            </div>
+            
+            <Routes>
+                <Route path="/catalog" element={<Home/>}/> 
+                <Route path="/" element={<Catalog searchText={search}/>}/>
+                <Route path="/cart" element={<Cart/>}/>
+                <Route path="/product/:id" element ={<Product/>}/>
+            </Routes>
+
         </main>
     )
 }
